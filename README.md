@@ -19,10 +19,10 @@ By default, '//' will register the command in the options list (! only when it i
 
 The program will display this within the menu as such:
 <pre><code>[0] Basic Commands
-   [0] echo [placeholder1] [placeholder2]
+   [0] echo [placeholder1] [placeholder2]</pre></code>
 
 Then at the prompt, a user can enter 
-<pre><code>0,0 hello world</pre></code> or <pre><code>0,0 hello world // this is a long string</pre></code>
+<pre><code>0,0 hello world</pre></code><i>or</i><pre><code>0,0 hello world // this is a long string</pre></code>
 
 If only a section selection is made, the program will prompt for the command selection as well. Users are also able to enter any native terminal command into the prompt - it will be executed as long as the program sees your input cannot convert to an integer, thus must not be a single section selection.
 
