@@ -10,8 +10,8 @@ import re
 from userData import *
 import subprocess
 
-if sectionDelim[-1] != ' ': sectionDelim += ' '
-if commandDelim[-1] != ' ': commandDelim += ' '
+if sectionID[-1] != ' ': sectionID += ' '
+if commandID[-1] != ' ': commandID += ' '
 
 if __name__ == '__main__':
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         # find indexes for new sections
         sectionIndexes = []
         for line in noteLines:
-            if sectionDelim in line:
+            if sectionID in line:
                 sectionIndexes.append(noteLines.index(line))
 
         # divide commands in sections into arrays. place into dictionary so they can be
@@ -41,9 +41,9 @@ if __name__ == '__main__':
         for x in range(0,len(sectionIndexes)):
             if sectionIndexes[x] != sectionIndexes[-1]:
                 # can do this in a large list compression
-                sections[noteLines[sectionIndexes[x]].replace(sectionDelim, '').strip()] = [x.replace(commandDelim, '').strip() for x in noteLines[sectionIndexes[x]:sectionIndexes[x+1]] if commandDelim in x.strip() and sectionDelim not in x.strip()]
+                sections[noteLines[sectionIndexes[x]].replace(sectionID, '').strip()] = [x.replace(commandID, '').strip() for x in noteLines[sectionIndexes[x]:sectionIndexes[x+1]] if commandID in x.strip() and sectionID not in x.strip()]
             else:
-                sections[noteLines[sectionIndexes[x]].replace(sectionDelim, '').strip()] = [x.replace(commandDelim, '').strip() for x in noteLines[sectionIndexes[x]:] if commandDelim in x.strip() and sectionDelim not in x.strip()]
+                sections[noteLines[sectionIndexes[x]].replace(sectionID, '').strip()] = [x.replace(commandID, '').strip() for x in noteLines[sectionIndexes[x]:] if commandID in x.strip() and sectionID not in x.strip()]
 
         # main user menu
         sectionNum = 0
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
             cmdNum = 0
 
-            print('[' + str(sectionNum) + '] --> ' + section.upper())
+            print('[' + str(sectionNum) + ']--> ' + section.upper())
 
             # set index to call section by
             sectionIndexes[str(sectionNum)] = section.strip()
@@ -76,7 +76,7 @@ if __name__ == '__main__':
         Running = True
         while Running:
 
-            userInput = input('>>')
+            userInput = input(' > ')
 
             # extras options
             if userInput.strip() == 'x':
@@ -85,10 +85,11 @@ if __name__ == '__main__':
                 print('[c] Refresh from notes file [' + notesPath + ']')
                 print('[d] Change notes file and refresh')
                 print('[e] Change delims and refresh')
-                extraInput = input('> ')
+                extraInput = input('>> ')
                 if extraInput.strip() == 'a': process = subprocess.Popen(['gedit',notesPath], stdout=subprocess.PIPE)
                 if extraInput.strip() == 'b':
                     for line in noteLines: print(line.strip())
+                    continue
                 if extraInput.strip() == 'c': Running = False
                 if extraInput.strip() == 'd':
                     notesPath = input('Notes path > ')
@@ -97,7 +98,8 @@ if __name__ == '__main__':
                     sectionDelim = input('Section Delim > ')
                     commandDelim = input('Command Delim > ')
                     Running = False
-                continue
+                else:
+                    userInput = extraInput
 
             # deal with user input - did they pass arguments in first input?
             # does the program need to retrieve arguments for placeholders if not?
@@ -108,7 +110,6 @@ if __name__ == '__main__':
                 indexes = inputArgs[0].split(' ')[0].split(',')
                 remove = inputArgs[0].split(' ')[0]
                 inputArgs[0] = inputArgs[0].replace(remove,'').strip()
-                print(inputArgs)
                 sectionReqInd = indexes[0]
                 commandReqInd = indexes[1]
 
