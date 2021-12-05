@@ -4,9 +4,9 @@ NotesToCommands is a fully customizable notes / command template program, allowi
 
 ## Identifyers and placeholders
 
-Users can denominate section and command identifyers within userData.py. An example note file and data file is provided. Run this program as is to see it work. By default sections are denoted with 5 forward slashes, and commands with two. 
+Users can specify section and command identifyers within userData.py. An example note file and data file is provided. Run this program as is to see it work. By default sections are denoted with 5 forward slashes, and commands with two. 
 
-To denominate placeholder argumeents in a command, use [brackets] surrounding a <i>singular word</i>.
+To denote placeholder argumeents in a command, use [brackets] surrounding a <i>singular word</i>.
 
 <pre><code>// ifconfig [adapter]
 </pre></code>
@@ -20,7 +20,8 @@ To denominate placeholder argumeents in a command, use [brackets] surrounding a 
 The program will display this within the menu as such:
 
 <pre><code>[0] Basic Commands
-   [0] echo [placeholder1] [placeholder2]</pre></code>
+   [0] echo [placeholder1] [placeholder2]
+</pre></code>
 
 Then at the prompt, a user can enter 
 
