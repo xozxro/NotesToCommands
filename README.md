@@ -1,11 +1,9 @@
 # NotesToCommands
 NotesToCommands is a fully customizable notes experience, allowing users to instantly execute terminal commands with dynamic arguments grouped into sections in their notes. It was originally created for pentesting uses, to avoid the needed remembrance and retyping of sets of commands for various attacks.
 
-NotesToCmd allows users to take notes on various terminal commands and then execute templates of with ease, right fromvtheir notes. user can denominate section and command identifyers within inside userData.py.
+Users can denominate section and command identifyers within inside userData.py. An example note file and data file is provided. Run this program as is to see it work.
 
-An example note file and data file is provided. Run this program as is to see it work.
-
-To denominate placeholder inputs in a command, users should use [brackets].
+To denominate placeholder argumeents in a command, use [brackets].
 
  ie // ifconfig [adapter]
 
