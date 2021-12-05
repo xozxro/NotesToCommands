@@ -44,8 +44,8 @@ if __name__ == '__main__':
     while catching:
         # first open the note file, read each line into an array
         if notesPath == '':
-            # assuming default, setting to notes.txt within current directory
-            pass
+            # defaults to notes.txt within working directory
+            notesPath == 'notes.txt'
 
         with open(notesPath) as noteFile:
             rawText = noteFile.readlines()
