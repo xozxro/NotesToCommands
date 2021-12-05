@@ -146,14 +146,15 @@ if __name__ == '__main__':
             if '[' in selectedCommand:
 
                 # find them using regedit
-                res = re.findall(r'\[.*?\]', selectedCommand)
+                placeholders = re.findall(r'\[.*?\]', selectedCommand)
 
                 # check if user provided placeholder aguments already
-                if inputArgs != [] and len(inputArgs) == len(res):
+                if inputArgs != [] and len(inputArgs) == len(placeholders):
 
                     # replace within command accordingly
                     argNum = 0
-                    for placeholder in res:
+                    for placeholder in placeholders:
+
                         selectedCommand = selectedCommand.replace(placeholder,inputArgs[argNum])
                         argNum += 1
 
@@ -162,9 +163,9 @@ if __name__ == '__main__':
                     if inputArgs != []: print('Argument count != placeholder count')
 
                     # query user for placeholder arguments
-                    for placeholder in res:
-                        newPlaceholder = input(placeholder[1:-1] + ' = ')
+                    for placeholder in placeholders:
 
+                        newPlaceholder = input(placeholder[1:-1] + ' = ')
                         # replace within command accordingly
                         selectedCommand = selectedCommand.replace(placeholder,newPlaceholder)
 
