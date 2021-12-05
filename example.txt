@@ -1,0 +1,47 @@
+///// WIFI CRACK
+
+Step 1: Check the name of your wireless interface and put it into monitor mode.
+
+// ifconfig [interface] down
+// iwconfig [interface] mode monitor
+// ifconfig [interface] up
+
+Step 2: Kill any processes that might interfere with the scan process. Always kill network administrator first. You might need to run the shown command more than once.
+
+// airmon-ng check kill
+
+Step 3: After you have successfully killed all process, run the command — airodump-ng <interface-name>. It should produce a list of access points as shown below:
+
+// airodump-ng [interface]
+
+Step 4: Choose the access point and run it along with the -w flag to write the result into a file. Our file is called capture.
+
+// airodump-ng -w capture -c 11 --bssid [mac]
+
+Step 5: Running the above command should show you the MAC address of the devices connected to that access point under ‘stations’.
+
+Step 6 — This is the most important step in ethical hacking using Kali Linux. Here we will broadcast a de-authentication signal to the access point we have chosen to attack. This disconnects the devices connected to the access point. Since these devices will most likely have the password stored they will try to auto reconnect. This will start a 4-way handshake between the device and the access point and will be captured in the scan going on from step 4 (yes, that scan is still running in the background).
+
+// aireplay-ng -0 0 -a [mac] [interface]
+// aireplay-ng --deauth 0 -a [mac] -D [interface]
+
+Step 7: Now we will use crunch along with aircrack-ng. Crunch is a wordlist generator. This process to crack passwords assumes you know a little about the password, for example, the length, some specific characters etc. The more you know the faster the process. Here I have tried to generate a list of words that begin with ‘sweetship’ as I know that password contains that phrase. The result is piped into the aircrack command which takes the capture files and compares the key values.
+
+// crunch [min] [max] [data] | aircrack-ng -w - [capturefile] -b [bssid]
+
+
+> CRUNCH:
+
+PLACEHOLDERS
+-t @,%^
+              Specifies a pattern, eg: @@god@@@@ where the only the @'s, ,'s, %'s, and  ^'s  will
+              change.
+              @ will insert lower case characters
+              , will insert upper case characters
+              % will insert numbers
+              ^ will insert symbols
+
+    MORE > https://manpages.ubuntu.com/manpages/bionic/man1/crunch.1.html
+
+
+DONE.
