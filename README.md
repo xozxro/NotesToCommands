@@ -11,7 +11,7 @@ To denominate placeholder argumeents in a command, use [brackets] surrounding a 
 <pre><code>// ifconfig [adapter]
 </pre></code>
 
-[adapter] will be an argument which must be provided at the prompt before execution. Arguments can be provided spaced apart immeditely after your selection, or they can be seperated with ' // ' if there are multiple words per argument. They will be assigned to the users denoted placeholders as appropriate. If none are specified, yet placeholders exist within the selected command, the program will prompt the user for them one by one.
+[adapter] will be an argument which must be provided at the prompt before execution. Arguments can be provided spaced apart immeditely after your selection, or they can be seperated with ' // ' if there are multiple words per argument. They will be assigned to the users denoted placeholders as appropriate. If none are specified, yet placeholders exist within the selected command, the program will prompt the user for them one by one. If the provided arguments do not match the amount of placeholders, the program will through an error, then prompt the user for them one by one.
 
 <pre><code>///// Basic Commands
 // echo [placeholder1] [placeholder2]
