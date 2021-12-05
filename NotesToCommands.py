@@ -4,31 +4,6 @@
 ### twitter.com/xozxro
 ###
 ####################################################
-###
-### NotesToCmd allows users to take notes on various terminal commands and then execute templates of with ease, right from
-### their notes. denominate sections and commands within them inside userData.py.
-### !! an example note file and data file has been provided. run this program and open example.txt to see it work.
-###
-### to denominate placeholder inputs in a command, users should use [brackets]
-###
-#### ie // ifconfig [adapter]
-###
-### '//' will register the command in the options list (! only when it is within a section) and [adapter] will be a argument
-### which must be provided before execution. arguments can be provided spaced apart immeditely after your selection,
-### or they can be seperated with ' // ' if there are multiple word per argument. they will be assigned to the denoted
-### placeholders as appropriate.
-###
-#### i.e // echo [placeholder1] [placeholder2]
-#### assuming echo is command 0 of section 0, user can enter '0,0 hello world' or 0,0 hello world // this is a long string
-###
-### if no arguments are given, the program will prompt for them placeholder by placeholder. if only a section is
-### specified, the program will prompt for that selection as well.
-### users are also able to enter any command into the prompt as well - it will be executed as long as the program
-### sees your input cannot convert to an interger, thus must not be a single section selection.
-###
-### ! I RECOMMEND REVIEWING THIS PROGRAM AS IT IS SHORT AND YOU WILL UNDERSTAND THE LOGIC IT USES
-###
-####################################################
 
 import os
 import re
