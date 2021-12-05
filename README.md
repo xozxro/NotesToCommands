@@ -18,6 +18,6 @@ If no arguments are given, the program will prompt for them placeholder by place
  
 Users are also able to enter any native terminal command into the prompt as well - it will be executed as long as the program sees your input cannot convert to an integer, thus must not be a single section selection.
 
-I RECOMMEND REVIEWING THE CODE AS IT IS ONLY ~200 LINES, THEN THE EXAMPLE FILE TO SEE HOW USERS CAN IMPLEMENT THEIR SPECIFIED COMMAND AND SECTION IDENTIFYERS IN THEIR NOTES / FILES
+I RECOMMEND REVIEWING THE CODE AS IT IS < 200 LINES, THEN THE EXAMPLE.TXT FILE TO SEE HOW USERS CAN IMPLEMENT THEIR SPECIFIED COMMAND AND SECTION IDENTIFYERS IN THEIR NOTES / FILES
 
 
