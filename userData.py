@@ -1,3 +1,3 @@
 notesPath = 'example.txt'
-sectionDelim = '/////'
-commandDelim = '//'
+sectionID = '/////'
+commandID = '//'
