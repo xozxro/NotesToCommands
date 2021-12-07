@@ -12,6 +12,7 @@ import subprocess
 
 if sectionID[-1] != ' ': sectionID += ' '
 if commandID[-1] != ' ': commandID += ' '
+useSudo = False
 
 if __name__ == '__main__':
 
@@ -68,7 +69,7 @@ if __name__ == '__main__':
                 print('   [' + str(cmdNum) + '] ' + command)
                 cmdNum += 1
 
-            print('[x] View extras')
+        print('[x] View extras')
 
         print('-----------------------------------')
 
@@ -80,13 +81,19 @@ if __name__ == '__main__':
 
             # extras options
             if userInput.strip() == 'x':
+                print('[s] Execute all commands with sudo')
                 print('[a] Open notes file [' + notesPath + ']')
                 print('[b] View notes file in terminal')
                 print('[c] Refresh from notes file [' + notesPath + ']')
                 print('[d] Change notes file and refresh')
                 print('[e] Change delims and refresh')
                 extraInput = input('>> ')
-                if extraInput.strip() == 'a': process = subprocess.Popen(['gedit',notesPath], stdout=subprocess.PIPE)
+                if extraInput.strip() == 's':
+                    useSudo = True
+                    continue
+                if extraInput.strip() == 'a':
+                    process = subprocess.Popen(['gedit',notesPath], stdout=subprocess.PIPE)
+                    continue
                 if extraInput.strip() == 'b':
                     for line in noteLines: print(line.strip())
                     continue
@@ -171,6 +178,8 @@ if __name__ == '__main__':
                         selectedCommand = selectedCommand.replace(placeholder,newPlaceholder)
 
             finalCmd = selectedCommand
+
+            if useSudo: finalCmd = 'sudo ' + finalCmd
 
             # execute command
             process = subprocess.Popen(finalCmd.split(), stdout=subprocess.PIPE)
