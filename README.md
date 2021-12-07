@@ -35,6 +35,6 @@ If only a section selection is made, the program will prompt for the command sel
 
 Users are also able to enter any native terminal command into the prompt - it will be executed as long as the program sees your input cannot convert to an integer, thus must not be a single section selection.
 
-By selecting 'x' at the prompt, users are able to select from further options including setting a new file path, setting new identifyers, refreshing the text from the current file, opening the notes file in Gedit, and displaying the notes file in the terminal. This allows for full modification capability to your file, the identifyers used in the file, and more without closing the program.
+By selecting 'x' at the prompt, users are able to select from further options including setting a new file path, setting new identifyers, refreshing the text from the current file, opening the notes file in Gedit, and displaying the notes file in the terminal. <i>Additionally, users can select 's' to execute all commands with root priveledges.</i> This allows for full modification capability to your file, the identifyers used in the file, and more without closing the program.
 
 <i>I RECOMMEND REVIEWING THE CODE AS IT IS < 200 LINES, THEN THE EXAMPLE.TXT FILE TO SEE HOW USERS CAN IMPLEMENT THEIR SPECIFIED COMMAND AND SECTION IDENTIFYERS IN THEIR NOTES / FILES</i>
