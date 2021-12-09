@@ -124,7 +124,6 @@ if __name__ == '__main__':
                 inputArgs = userInput.split(' ')
                 indexes = inputArgs[0].split(',')
                 inputArgs = inputArgs[1:]
-                print(inputArgs)
                 sectionReqInd = indexes[0]
                 commandReqInd = indexes[1]
 
